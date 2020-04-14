@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content letra-mediana class="animated fadeIn common-bg" fullscreen>
+  <div class="container">
+    <!-- ENC -->
+    <br />
+    <table class="table table-sm table-bordered mb-30">
+      <tr>
+        <td nowrap>FORMULARIO:</td>
+        <td class="letra-mediana"><b>{{obj_checklist.nombre_checklist}}</b></td>
+      </tr>
+      <tr>
+        <td nowrap>PUNTO CONTROL:</td>
+        <td class="letra-mediana">{{obj_respuesta_final.NOMBRE_PC}}</td>
+      </tr>
+    </table>
+    <!-- PUNTO DE CONTROL -->
+    <div class="row" *ngIf="div_seleccion_puntocontrol">
+      <div class="col-12 text-center">
+        <p class="letra-mediana"><b>PUNTOS DE CONTROL:</b></p>
+        <button *ngFor="let x of data_pc" class="btn btn-primary btn-block letra-mediana" (click)="ir_puntocontrol(x)">{{x.nombre_pc}}</button>
+      </div>
+    </div>
+    <!-- ITEMS -->
+    <div *ngIf="div_seleccion_items">
+      <div class="row">
+        <div class="col-12 text-center">
+          <p class="letra-mediana"><b>ITEMS:</b></p>
+          <button *ngFor="let x of data_items" class="btn btn-primary btn-block letra-mediana" (click)="ir_item(x)">{{x.nombre_item}}</button>
+        </div>
+      </div>
+    </div>
+    <!-- PREGUNTA -->
+    <div class="row" *ngIf="div_pregunta">
+      <div class="col-12 text-center">
+        <b class="letra-mediana">{{obj_item.nombre_item}}</b>
+        <hr />
+        <table>
+          <tr class="table table-sm table table-light">
+            <td class="text-dark" (click)="BackPreg();"><i class="fa fa-chevron-circle-left fa-2x"></i></td>
+            <td style="width:100%">
+              <b class="letra-mediana">{{obj_pregunta.nombre_pregunta}}</b>
+              <br />
+              {{contador_pregunta + 1}} de {{obj_item.num_preguntas}}
+            </td>
+            <td class="text-dark" (click)="NextPreg();"><i class="fa fa-chevron-circle-right fa-2x"></i></td>
+          </tr>
+        </table>
+        <hr />
+        <div [ngSwitch]="obj_pregunta.tipo_pregunta">
+          <div *ngSwitchCase="1">
+            <select class="form-control input-bg letra-mediana" name="sel"
+                    [(ngModel)]="respuesta_aux">
+              <option value="SI" selected>
+                SI
+              </option>
+              <option value="NO">
+                NO
+              </option>
+            </select>
+          </div>
+          <div *ngSwitchCase="2">
+            <input type="text" class="form-control input-bg letra-mediana" [(ngModel)]="respuesta_aux" />
+          </div>
+          <div *ngSwitchCase="3">
+            <input type="number" class="form-control input-bg letra-mediana" [(ngModel)]="respuesta_aux" />
+          </div>
+          <div *ngSwitchCase="9">
+            <input type="date" class="form-control input-bg letra-mediana" [(ngModel)]="respuesta_aux" />
+          </div>
+          <div *ngSwitchCase="2041">
+            <input type="time" class="form-control input-bg letra-mediana" [(ngModel)]="respuesta_aux" />
+          </div>
+          <div *ngSwitchDefault>
+            <ion-select [(ngModel)]="respuesta_aux" class="form-control input-bg letra-mediana">
+              <ion-option value="-1">-- SELECCIONE --</ion-option>
+              <ion-option *ngFor="let x of data_pregunta_select" [value]="x.nombre_item">
+                {{x.nombre_item}}
+              </ion-option>
+            </ion-select>           
+          </div>
+        </div>
+        <hr />
+        <button class="btn btn-primary btn-block letra-mediana" (click)="GuardarPregunta()">SIGUIENTE</button>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<!-- FOOTER -->
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col><button class="btn btn-dark btn-block letra-mediana" (click)="ListarFormularios()">CANCELAR <i class="fa fa-times"></i></button></ion-col>
+      <ion-col><button class="btn btn-success btn-block letra-mediana" (click)="GuardarFormulario()">FINALIZAR <i class="fa fa-check"></i></button><br /></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

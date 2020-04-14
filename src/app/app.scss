@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,47 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.mb-30{
+  margin-bottom:30px;
+}
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.letra-grande {
+  font-size: 15px;
+}
+
+.letra-mediana {
+  font-size: 14px;
+}
+
+#relojito {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.7);
+  /* change if the mask should have another color then white */
+  z-index: 9999;
+  /* makes sure it stays on top */
+}
+
+#relojito3 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  /* centers the loading animation horizontally one the screen */
+  top: 60%;
+  /* centers the loading animation vertically one the screen */
+  margin: -100px 0 0 -100px;
+  /* is width and height divided by two */
+}
+
+.no-padding {
+  padding: 0px;
+}

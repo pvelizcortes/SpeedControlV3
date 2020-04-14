@@ -1,19 +1,27 @@
 <ion-menu [content]="content" type="overlay">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>{{user.nombre_usuario}} - {{ user.nom_empresa}}</ion-title>
+
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+        <i class="{{p.icon}}"></i> {{p.title}}
       </button>
     </ion-list>
   </ion-content>
-
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<!-- LOADER-->
+<div id="relojito" *ngIf="showloader">
+  <div id="relojito3" class="text-center">
+    <span>
+      <ion-spinner color="primary" name="crescent"></ion-spinner>
+    </span><h4 style="color:dimgray">&nbsp;&nbsp;Espere un momento...</h4>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Actualizar Checklists</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 letra-mediana">
+        <h4>Resultado de Importación:</h4>
+        <hr />
+        <p><i *ngIf="resultado.visible_pc" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_pc == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_pc}} puntos de control registrados correctamente. </p>
+        <p><i *ngIf="resultado.visible_chk" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_chk == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_checklists}} formularios registrados correctamente. </p>
+        <p><i *ngIf="resultado.visible_item" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_item == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_items}} items registrados correctamente. </p>
+        <p><i *ngIf="resultado.visible_preg" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_preg == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_preguntas}} preguntas registrados correctamente. </p>
+        <p><i *ngIf="resultado.visible_categorias" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_categorias == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_categorias}} categorías registradas correctamente. </p>
+        <p><i *ngIf="resultado.visible_sm" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_sm == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_sm}} selecciones multiples registradas correctamente. </p>
+        <p><i *ngIf="resultado.visible_sm_det" class="fa fa-check text-success"></i><i *ngIf="resultado.visible_sm_det == false" class="fa fa-spinner fa-spin text-danger"></i>{{resultado.num_sm_det}} items de selecciones multiples registrados correctamente. </p>
+
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<!-- LOADER-->
+<div id="relojito" *ngIf="showloader">
+  <div id="relojito3" class="text-center">
+    <span>
+      <ion-spinner color="primary" name="crescent"></ion-spinner>
+    </span><h4 style="color:dimgray">&nbsp;&nbsp;Espere un momento...</h4>
+  </div>
+</div>

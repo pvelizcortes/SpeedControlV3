@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>FORMULARIOS</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div class="container">  
+    <div class="row">
+      <div class="col-12">
+        <br />     
+        <div *ngFor="let cats of data">
+          <b class="text-dark letra-mediana"><i class="fa fa-hashtag"></i> {{cats.nombre_categoria}} </b>
+          <br />
+          <br />
+          <div class="text-right">
+            <div style="padding-left:10%" class="text-right">
+              <div *ngFor="let chk of cats.list_checklist" class="btn btn-primary letra-mediana btn-block text-left" (click)="open_checklist(chk)">{{chk.nombre_checklist}}</div>
+            </div>            
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

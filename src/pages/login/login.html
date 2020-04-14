@@ -1,0 +1,37 @@
+<ion-content padding>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <hr />
+        <h2>SPEED CONTROL LOGIN</h2>
+        <br />
+        <br />
+        <br />
+        <div class="form">
+          <div class="form-group">
+            <h4><label><b>USUARIO</b></label></h4>
+            <input type="text" [(ngModel)]="usuario.usuario" class="form-control form-control-lg letra-grande" placeholder="Ingrese su usuario">
+          </div>
+          <br />
+          <div class="form-group">
+            <h4><label><b>CONTRASEÑA</b></label></h4>
+            <input type="password" [(ngModel)]="usuario.clave" class="form-control form-control-lg letra-grande" placeholder="Ingrese su contraseña">
+          </div>
+          <br />
+          <button (click)="Login()" class="btn btn-primary btn-lg btn-block letra-grande">INGRESAR</button>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</ion-content>
+<!-- LOADER-->
+<div id="relojito" *ngIf="showloader">
+  <div id="relojito3" class="text-center">
+    <span>
+      <ion-spinner color="primary" name="crescent"></ion-spinner>
+    </span><h4 style="color:dimgray">&nbsp;&nbsp;Espere un momento...</h4>
+  </div>
+</div>
+
+
